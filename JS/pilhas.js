@@ -44,21 +44,42 @@
 
 //pilha.print()
 
-function dec2Bin(decNumber){
-    var restStack = [],
-    reset,
-    binaryString = ''
+//function dec2Bin(decNumber){//23
+//    var restStack = [],
+//    reset,
+//    binaryString = ''
+//
+//    while(decNumber > 0){//0
+//        rest = Math.floor(decNumber % 2)//1
+//        restStack.push(rest)//[1,1,1,0,1]
+//        decNumber = Math.floor(decNumber / 2)//0
+//    }
+//
+//    while(restStack.length > 0){//0
+//        binaryString += restStack.pop().toString()//10111
+//    }
+//    return binaryString
+//}
+//
+//console.log(dec2Bin(23))
 
-    while(decNumber > 0){
-        rest = Math.floor(decNumber % 2)
-        restStack.push(rest)
-        decNumber = Math.floor(decNumber / 2)
-    }
+function baseCoverter(decNumber, base){//123, 16
+  var restStack = [],
+  rest,
+  baseString = '',
+  digits ='0123456789ABCDEF';
 
-    while(restStack.length > 0){
-        binaryString += restStack.pop().toString()
-    }
-    return binaryString
-}
+  while(decNumber > 0){//0
+    rest = Math.floor(decNumber % base); //7
+    restStack.push(rest);//[11, 7, ]
+    decNumber = Math.floor(decNumber / base);//0
+  };
 
-console.log(dec2Bin())
+  while(restStack.length > 0){//
+    baseString += digits[restStack.pop()]//7B
+  };
+
+  return baseString;//7B
+};
+
+console.log(baseCoverter(123, 2));
